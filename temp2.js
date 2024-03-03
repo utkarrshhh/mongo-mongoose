@@ -14,7 +14,7 @@ db.runCommand({
         },
         author: {
           bsonType: "array",
-          description: "must be an array and required",
+          description: "must be an array of objects and required",
           items: {
             bsonType: "object",
             required: ["name", "email"],
