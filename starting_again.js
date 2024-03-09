@@ -4,25 +4,27 @@ const cors = require("cors");
 const app = express();
 const User = require("./models/userModels");
 mongoose.connect("mongodb://localhost:27017/new_Db");
-console.log("a");
+// console.log("a");
 
 app.use(cors());
-//   const user = new User({ name: "utkaasaa", age: 1234 });
-//   await user.save();
+
 run();
 
 async function run() {
   await User.deleteMany({}, {});
-
-  const user = await User.create({
-    name: "kyle",
-    age: 242,
-    hobbies: ["cricket", "music"],
-    address: {
-      street: "main street",
-    },
-  });
-  console.log(user);
+  try {
+    const user = await User.create({
+      name: "kyle",
+      age: 240,
+      hobbies: ["cricket", "music"],
+      address: {
+        street: "main street",
+      },
+    });
+    console.log(user);
+  } catch (e) {
+    console.log(e.message);
+  }
 }
 
 app.get("/", async (req, res) => {

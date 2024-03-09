@@ -17,6 +17,10 @@ const schema = mongoose.Schema({
     street: String,
     city: String,
   },
+  bestFriend: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "User",
+  },
 });
 
 module.exports = mongoose.model("User", schema);
